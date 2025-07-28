@@ -141,7 +141,7 @@ def show_itineraries(itineraries):
 
         if outbound:
             first_segment = outbound["sectorSegments"][0]["segment"]["source"]
-            start_code = f"City:{first_segment['station']['city']['id']}"
+            start_code = f"{first_segment['station']['city']['id']}"
             price_to_start = get_flight_to_start(start_code)
             st.write(f"➕ Lot Warszawa ➡ {start_code}: {price_to_start:.2f} PLN")
         else:
@@ -149,7 +149,7 @@ def show_itineraries(itineraries):
 
         if inbound:
             last_segment = inbound["sectorSegments"][-1]["segment"]["destination"]
-            end_code = f"City:{last_segment['station']['city']['id']}"
+            end_code = f"{last_segment['station']['city']['id']}"
             price_to_end = get_flight_from_end(end_code)
             st.write(f"➕ Lot {end_code} ➡ Warszawa: {price_to_end:.2f} PLN")
         else:
